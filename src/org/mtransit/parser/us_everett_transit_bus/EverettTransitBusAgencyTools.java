@@ -87,6 +87,8 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 		return Long.parseLong(gRoute.getRouteShortName()); // using route short name as route ID
 	}
 
+	private static final String AGENCY_COLOR_RED = "C92E36"; // RED (from web site CSS)
+
 	private static final String AGENCY_COLOR = AGENCY_COLOR_RED;
 
 	@Override
@@ -125,6 +127,7 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 	private static final String AIRPORT_RD = "Airport Rd";
 	private static final String BOEING = "Boeing";
 	private static final String COLLEGE_STATION = "College Sta";
+	private static final String DOWNTOWN = "Downtown";
 	private static final String EVERETT = "Everett";
 	private static final String EVERETT_STATION = EVERETT + " Sta";
 	private static final String HARBORFRONT = "Harborfront";
@@ -148,17 +151,32 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, WEST_CASINO_ROAD) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
-						Arrays.asList(new String[] { "19", "377", "200" })) //
+						Arrays.asList(new String[] { //
+						"299", // W CASINO RD & AIRPORT RD - WB
+								"312", "41", "319", // !=
+								"19", // CASINO and AIRPORT
+								"20", // !=
+								"134", // !=
+								"99" // EVERETT STATION - D 2
+						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
-						Arrays.asList(new String[] { "200", "347", "369", "19" })) //
+						Arrays.asList(new String[] { //
+						"99", // EVERETT STATION - D 2
+								"272", "298", // !=
+								"299", // W CASINO RD & AIRPORT RD - WB
+						})) //
 				.compileBothTripSort());
 		map2.put(4l, new RouteTripSpec(4l, //
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
-				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION) //
+				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, DOWNTOWN) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
-						Arrays.asList(new String[] { "87", "101", "67" })) //
+						Arrays.asList(new String[] { //
+						"567", "583" //
+						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
-						Arrays.asList(new String[] { "67", "76", "87" })) //
+						Arrays.asList(new String[] { //
+						"583", "567" //
+						})) //
 				.compileBothTripSort());
 		map2.put(5l, new RouteTripSpec(5l, //
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
@@ -172,27 +190,56 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, HARBORFRONT, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
-						Arrays.asList(new String[] { "425", "426", "432" })) //
+						Arrays.asList(new String[] { //
+						"320", // EVERETT STATION - D4
+								"336", // EVERETT STATION - I2
+								"131", // !=
+								"327" // 13TH atW MARINE VIEW DR
+						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
-						Arrays.asList(new String[] { "432", "438", "425" })) //
+						Arrays.asList(new String[] { //
+						"327", // 13TH atW MARINE VIEW DR
+								"98", // !=
+								"336", // EVERETT STATION - I2
+								"320" // EVERETT STATION - D4
+						})) //
 				.compileBothTripSort());
 		map2.put(7l, new RouteTripSpec(7l, //
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, MALL_STATION) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
-						Arrays.asList(new String[] { "146", "458", "473" })) //
+						Arrays.asList(new String[] { //
+						"205", // MALL STATION - BAY 1
+								"267", // COLLEGE STATION - BAY F - NB
+						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
-						Arrays.asList(new String[] { "473", "356", //
-								"357", "369", // !=
-								"500", "146" })) //
+						Arrays.asList(new String[] { //
+						"267", // COLLEGE STATION - BAY F - NB
+								"405", // COLLEGE STATION - BAY B - SB
+								"136", // ==
+								"376", // ==
+								"377", // !=
+								"151", "154", // !=
+								"156", // ==
+								"286", // ==
+								"287", "299", // !=
+								"396", // ==
+								"205", // MALL STATION - BAY 1
+						})) //
 				.compileBothTripSort());
 		map2.put(8l, new RouteTripSpec(8l, //
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, AIRPORT_RD) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
-						Arrays.asList(new String[] { "553", "423", "114" })) //
+						Arrays.asList(new String[] { //
+						"450", // AIRPORT and EVERGREEN
+								"320", // EVERETT STATION - D4
+						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
-						Arrays.asList(new String[] { "114", "501", "553" })) //
+						Arrays.asList(new String[] { //
+						"320", // EVERETT STATION - D4
+								"450", // AIRPORT and EVERGREEN
+						})) //
 				.compileBothTripSort());
 		map2.put(12l, new RouteTripSpec(12l, //
 				MDirectionType.EAST.intValue(), MTrip.HEADSIGN_TYPE_STRING, MALL_STATION, //
@@ -203,46 +250,63 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 						Arrays.asList(new String[] { "1", "18", "41", "19" })) //
 				.compileBothTripSort());
 		map2.put(17l, new RouteTripSpec(17l, //
-				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION, //
+				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, MALL_STATION) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
-						Arrays.asList(new String[] { "146", "162", "114" })) //
+						Arrays.asList(new String[] { //
+						"405", // COLLEGE STATION - BAY B - SB
+								"205", // MALL STATION - BAY 1
+						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
-						Arrays.asList(new String[] { "114", "133", "146" })) //
+						Arrays.asList(new String[] { //
+						"205", // MALL STATION - BAY 1
+								"405", // COLLEGE STATION - BAY B - SB
+						})) //
 				.compileBothTripSort());
 		map2.put(18l, new RouteTripSpec(18l, //
 				MDirectionType.EAST.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION, //
 				MDirectionType.WEST.intValue(), MTrip.HEADSIGN_TYPE_STRING, MUKILTEO) //
 				.addTripSort(MDirectionType.EAST.intValue(), //
-						Arrays.asList(new String[] { "177", "187", "199", "84", "86", "200" })) //
+						Arrays.asList(new String[] { //
+						"67", // MUKILTEO FERRY TERMINAL
+								"96", // ==
+								"132", "134", // !=
+								"97", "98", // !=
+								"99", // EVERETT STATION - D 2
+						})) //
 				.addTripSort(MDirectionType.WEST.intValue(), //
-						Arrays.asList(new String[] { "200", "203", "225", "177" })) //
+						Arrays.asList(new String[] { //
+						"99", // EVERETT STATION - D 2
+								"67", // MUKILTEO FERRY TERMINAL
+						})) //
 				.compileBothTripSort());
 		map2.put(29l, new RouteTripSpec(29l, //
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, MALL_STATION) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
-						"146", "290", "291", "292", //
-								"331", "340", // !=
-								"293", "298", // !=
-								"262", "299", //
-								"300", "254", "255", //
-								"256", "257", //
-								"258", "259", "301", //
-								"226"
+						"205", // MALL STATION - BAY 1
+								"206", // ==
+								"212", // ==
+								"270", "271", // !=
+								"213", "222", // !=
+								"223", // ==
+								"266", // ==
+								"267", // COLLEGE STATION - BAY F - NB
+								"135", // COLLEGE STATION- BAY D
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
-						"226", //
-								"253", "254", "255", //
-								"256", "257", //
-								"258", "259", "260", //
-								"261", "262", "263", //
-								"269", // ==
-								"270", "276", // !=
-								"341", "342", // !=
-								"277", "146"
+						"267", // COLLEGE STATION - BAY F - NB
+								"135", // COLLEGE STATION- BAY D
+								"136", // ==
+								"156", // ++
+								"188", // ==
+								"268", "269", // !=
+								"189", "195", // !=
+								"196", // ==
+								"40", // ==
+								"205", // MALL STATION - BAY 1
 						})) //
 				.compileBothTripSort());
 		map2.put(70l, new RouteTripSpec(70l, //
@@ -250,15 +314,23 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				MDirectionType.WEST.intValue(), MTrip.HEADSIGN_TYPE_STRING, MUKILTEO) //
 				.addTripSort(MDirectionType.EAST.intValue(), //
 						Arrays.asList(new String[] { //
-						"177", "522", //
-								"41", "386", "387", "388", //
-								"509", "382", "385"
+						"67", // MUKILTEO FERRY TERMINAL
+								"68", "419", // !=
+								"41", "318", // !=
+								"319", // PERIMETER RD & SEAWAY BLVD - EB
+								"406", // AIRPORT RD & W CASINO RD - SB
+								"312", "315", // !=
+								"316", // BOEING GATE E-68
 						})) //
 				.addTripSort(MDirectionType.WEST.intValue(), //
 						Arrays.asList(new String[] { //
-						"385", //
-								"41", "386", "387", "388", //
-								"510", "177"
+						"406", // AIRPORT RD & W CASINO RD - SB
+								"312", "315", // !=
+								"316", // BOEING GATE E-68
+								"41", "318", // !=
+								"319", // PERIMETER RD & SEAWAY BLVD - EB
+								"407", "413", // !=
+								"67", // MUKILTEO FERRY TERMINAL
 						})) //
 				.compileBothTripSort());
 		ALL_ROUTE_TRIPS2 = map2;
