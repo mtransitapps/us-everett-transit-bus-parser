@@ -160,20 +160,20 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 								"20", // "2106" // MARINER PARK AND RIDE - Bay 4
 						})) //
 				.compileBothTripSort());
-		map2.put(3l, new RouteTripSpec(3l, //
+		map2.put(3L, new RouteTripSpec(3L, //
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, WEST_CASINO_ROAD) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						"76", // "5000", // W CASINO RD & AIRPORT RD - WB
-								"81", // "5005", // W CASINO RD & AIRPORT RD - EB
+								"78", // "5005", // W CASINO RD & AIRPORT RD - EB
 								"33", // "2430", // EVERETT STATION - D2
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
 						"33", // "2430", // EVERETT STATION - D2
 								"76", // "5000", // W CASINO RD & AIRPORT RD - WB
-								"81", // "5005", // W CASINO RD & AIRPORT RD - EB
+								"78", // "5005", // W CASINO RD & AIRPORT RD - EB
 						})) //
 				.compileBothTripSort());
 		map2.put(4l, new RouteTripSpec(4l, //
@@ -256,12 +256,12 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 								"317", // "5288", // AIRPORT RD & EVERGREEN WAY - NB
 						})) //
 				.compileBothTripSort());
-		map2.put(12l, new RouteTripSpec(12l, //
+		map2.put(12L, new RouteTripSpec(12L, //
 				MDirectionType.EAST.intValue(), MTrip.HEADSIGN_TYPE_STRING, MALL_STATION, //
 				MDirectionType.WEST.intValue(), MTrip.HEADSIGN_TYPE_STRING, WEST_CASINO_ROAD) //
 				.addTripSort(MDirectionType.EAST.intValue(), //
 						Arrays.asList(new String[] { //
-						"81", // "5005" // W CASINO RD & AIRPORT RD - EB
+						"78", // "5005" // W CASINO RD & AIRPORT RD - EB
 								"97", // ++ "5115" // E CASINO RD & EVERGREEN WAY - EB
 								"1", // "6394", // MALL STATION - BAY 2
 						})) //
@@ -271,7 +271,7 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 								"362", // ++ "5215" // 100TH ST SW & EVERGREEN WAY - WB
 								"370", // == // "5007" // AIRPORT RD & KASCH PARK RD - NB
 								"77", // != // "2327" // BOEING GATE E-72
-								"81", // "5005" // W CASINO RD & AIRPORT RD - EB
+								"78", // "5005" // W CASINO RD & AIRPORT RD - EB
 						})) //
 				.compileBothTripSort());
 		map2.put(17l, new RouteTripSpec(17l, //
@@ -305,36 +305,49 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 								"465", // "1465", // MUKILTEO FERRY TERMINAL
 						})) //
 				.compileBothTripSort());
-		map2.put(29l, new RouteTripSpec(29l, //
+		map2.put(29L, new RouteTripSpec(29L, //
 				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, MALL_STATION) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						"235", // "6395", // MALL STATION - BAY 1
+								"533", // ++
 								"556", // == !=
-								"511", // != <>
+								"532", // != <>
 								"557", // == !=
 								"558", // == !=
-								"503", // != <>
-								"508", // != <>
+								"526", // != <>
+								"527", // != <> ++
+								"528", // != <> ++
+								"529", // != <> ++
+								"530", // != <> ++
+								"531", // != <>
 								"559", // == !=
+								"579", // ++
 								"483", // "1054", // COLLEGE STATION - BAY D - NB
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
 						"483", // "1054", // COLLEGE STATION - BAY D - NB
-								"145", // "2340", // EVERETT STATION - F1 - SB
+								"198", // ++
+								"136", // ++
+								"145", // == "2340", // EVERETT STATION - F1 - SB
 								"502", // == !=
-								"503", // != <>
-								"508", // != <>
-								"509", // == !=
-								"510", // == !=
-								"511", // != <>
-								"512", // == !=
+								"526", // != <>
+								"527", // != <> ++
+								"528", // != <> ++
+								"529", // != <> ++
+								"530", // != <> ++
+								"531", // != <>
+								"503", // == !=
+								"504", // == !=
+								"532", // != <>
+								"505", // == !=
+								"32", // ++
 								"235", // "6395", // MALL STATION - BAY 1
 						})) //
 				.compileBothTripSort());
-		map2.put(70l, new RouteTripSpec(70l, //
+		map2.put(70L, new RouteTripSpec(70L, //
 				MDirectionType.EAST.intValue(), MTrip.HEADSIGN_TYPE_STRING, BOEING, //
 				MDirectionType.WEST.intValue(), MTrip.HEADSIGN_TYPE_STRING, MUKILTEO) //
 				.addTripSort(MDirectionType.EAST.intValue(), //
@@ -342,7 +355,7 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 						"465", // "1465", // MUKILTEO FERRY TERMINAL
 								"585", // !=
 								"77", // <>
-								"80", // <> "2905", // PERIMETER RD & SEAWAY BLVD - EB
+								"81", // <> "2905", // PERIMETER RD & SEAWAY BLVD - EB
 								"586", // <> "2484", // AIRPORT RD & W CASINO RD - SB
 								"82", // <>
 								"86", // <> "2977", // BOEING GATE E-68
@@ -353,7 +366,7 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 								"82", // <>
 								"86", // <> "2977", // BOEING GATE E-68
 								"77", // <>
-								"80", // <> "2905", // PERIMETER RD & SEAWAY BLVD - EB
+								"81", // <> "2905", // PERIMETER RD & SEAWAY BLVD - EB
 								"587", // !=
 								"465", // "1465", // MUKILTEO FERRY TERMINAL
 						})) //
