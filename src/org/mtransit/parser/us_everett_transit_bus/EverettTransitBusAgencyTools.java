@@ -27,7 +27,8 @@ import org.mtransit.parser.mt.data.MRoute;
 import org.mtransit.parser.mt.data.MTrip;
 import org.mtransit.parser.mt.data.MTripStop;
 
-// http://www.soundtransit.org/Developer-resources/Data-downloads
+// https://www.soundtransit.org/Developer-resources/Data-downloads
+// https://www.soundtransit.org/help-contacts/business-information/open-transit-data-otd/otd-downloads
 // http://developer.onebusaway.org/tmp/sound/gtfs/modified/97_gtfs.zip
 // http://developer.onebusaway.org/tmp/sound/gtfs/modified_staged/97_gtfs.zip
 public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
@@ -49,8 +50,85 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 		System.out.printf("\nGenerating Everett Transit bus data...");
 		long start = System.currentTimeMillis();
 		this.serviceIds = extractUsefulServiceIds(args, this, true);
+		boolean isNext = "next_".equalsIgnoreCase(args[2]);
+		if (isNext) {
+			setupNext();
+		}
 		super.start(args);
 		System.out.printf("\nGenerating Everett Transit bus data... DONE in %s.\n", Utils.getPrettyDuration(System.currentTimeMillis() - start));
+	}
+
+	private void setupNext() {
+		ALL_ROUTE_TRIPS2.put(3L, new RouteTripSpec(3L, //
+				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION, //
+				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, SEAWAY_TC) //
+				.addTripSort(MDirectionType.NORTH.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("3182"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
+								Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+						})) //
+				.addTripSort(MDirectionType.SOUTH.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+								Stops.ALL_STOPS.get("3182"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
+						})) //
+				.compileBothTripSort());
+		ALL_ROUTE_TRIPS2.put(4L, new RouteTripSpec(4L, //
+				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
+				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION) //
+				.addTripSort(MDirectionType.NORTH.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+								Stops.ALL_STOPS.get("1053"), // COLLEGE STATION - BAY C - SB
+						})) //
+				.addTripSort(MDirectionType.SOUTH.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("1053"), // COLLEGE STATION - BAY C - SB
+								Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+						})) //
+				.compileBothTripSort());
+		ALL_ROUTE_TRIPS2.put(6L, new RouteTripSpec(6L, //
+				MDirectionType.NORTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, COLLEGE_STATION, //
+				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION) //
+				.addTripSort(MDirectionType.NORTH.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
+								Stops.ALL_STOPS.get("1052"), // COLLEGE STATION - BAY B - SB
+						})) //
+				.addTripSort(MDirectionType.SOUTH.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("1052"), // COLLEGE STATION - BAY B - SB
+								Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
+						})) //
+				.compileBothTripSort());
+		ALL_ROUTE_TRIPS2.put(12L, new RouteTripSpec(12L, //
+				MDirectionType.EAST.intValue(), MTrip.HEADSIGN_TYPE_STRING, MALL_STATION, //
+				MDirectionType.WEST.intValue(), MTrip.HEADSIGN_TYPE_STRING, SEAWAY_TC) //
+				.addTripSort(MDirectionType.EAST.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+								Stops.ALL_STOPS.get("6394"), // MALL STATION - BAY 2
+						})) //
+				.addTripSort(MDirectionType.WEST.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("6394"), // MALL STATION - BAY 2
+								Stops.ALL_STOPS.get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+						})) //
+				.compileBothTripSort());
+		ALL_ROUTE_TRIPS2.put(70L, new RouteTripSpec(70L, //
+				MDirectionType.EAST.intValue(), MTrip.HEADSIGN_TYPE_STRING, BOEING, // SEAWAY_TC
+				MDirectionType.WEST.intValue(), MTrip.HEADSIGN_TYPE_STRING, MUKILTEO) //
+				.addTripSort(MDirectionType.EAST.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("1465"), // MUKILTEO FERRY TERMINAL
+								Stops.ALL_STOPS.get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+						})) //
+				.addTripSort(MDirectionType.WEST.intValue(), //
+						Arrays.asList(new String[] { //
+						Stops.ALL_STOPS.get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+								Stops.ALL_STOPS.get("1465"), // MUKILTEO FERRY TERMINAL
+						})) //
+				.compileBothTripSort());
 	}
 
 	@Override
@@ -145,6 +223,7 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 	private static final String MARINER_PARK_AND_RIDE = "Mariner " + PARK_AND_RIDE_SHORT;
 	private static final String MUKILTEO = "Mukilteo";
 	private static final String WEST_CASINO_ROAD = "W Casino Rd";
+	private static final String SEAWAY_TC = "Seaway TC";
 
 	private static HashMap<Long, RouteTripSpec> ALL_ROUTE_TRIPS2;
 	static {
@@ -170,15 +249,27 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, WEST_CASINO_ROAD) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.ALL_STOPS.get("5000"), // W CASINO RD & AIRPORT RD - WB
-								Stops.ALL_STOPS.get("5005"), // W CASINO RD & AIRPORT RD - EB
+						Stops.ALL_STOPS.get("5000"), // <> W CASINO RD & AIRPORT RD - WB
+								Stops.ALL_STOPS.get("2913"), // <> AIRPORT RD & KASCH PARK RD - SB
+								Stops.ALL_STOPS.get("2977"), // <> BOEING GATE E-68
+								Stops.ALL_STOPS.get("2327"), // <> BOEING GATE E-72
+								Stops.ALL_STOPS.get("2328"), // <> BOEING GATE E-84
+								Stops.ALL_STOPS.get("2905"), // <> PERIMETER RD & SEAWAY BLVD - EB
+								Stops.ALL_STOPS.get("5005"), // <> W CASINO RD & AIRPORT RD - EB
+								Stops.ALL_STOPS.get("5020"), // W CASINO RD & 23RD AVE W - EB
 								Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
-								Stops.ALL_STOPS.get("5000"), // W CASINO RD & AIRPORT RD - WB
-								Stops.ALL_STOPS.get("5005"), // W CASINO RD & AIRPORT RD - EB
+								Stops.ALL_STOPS.get("5015"), // != W CASINO RD & 23RD AVE W - WB
+								Stops.ALL_STOPS.get("5000"), // <> == W CASINO RD & AIRPORT RD - WB
+								Stops.ALL_STOPS.get("2913"), // <> != AIRPORT RD & KASCH PARK RD - SB
+								Stops.ALL_STOPS.get("2977"), // <> != BOEING GATE E-68
+								Stops.ALL_STOPS.get("2327"), // <> == BOEING GATE E-72
+								Stops.ALL_STOPS.get("2328"), // <> != BOEING GATE E-84
+								Stops.ALL_STOPS.get("2905"), // <> != PERIMETER RD & SEAWAY BLVD - EB
+								Stops.ALL_STOPS.get("5005"), // <> == W CASINO RD & AIRPORT RD - EB
 						})) //
 				.compileBothTripSort());
 		map2.put(4L, new RouteTripSpec(4L, //
@@ -295,16 +386,18 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.EAST.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("1465"), // MUKILTEO FERRY TERMINAL
-								Stops.ALL_STOPS.get("426"), // ==
-								Stops.ALL_STOPS.get("2315"), // !=
-								Stops.ALL_STOPS.get("2325"), // !=
-								Stops.ALL_STOPS.get("2886"), // !=
-								Stops.ALL_STOPS.get("2324"), // !=
-								Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+								Stops.ALL_STOPS.get("426"), // == HEWITT AVE & OAKES AVE - EB
+								Stops.ALL_STOPS.get("2315"), // != MAPLE ST & PACIFIC AVE - SB
+								Stops.ALL_STOPS.get("2325"), // != PACIFIC AVE & FULTON ST - WB
+								Stops.ALL_STOPS.get("2886"), // != BROADWAY & WALL ST - SB
+								Stops.ALL_STOPS.get("2324"), // != 33RD ST & MCDOUGALL AVE - EB
+								Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2 =>
+								Stops.ALL_STOPS.get("2450"), // EVERETT STATION - I1 =>
 						})) //
 				.addTripSort(MDirectionType.WEST.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+						Stops.ALL_STOPS.get("2450"), // EVERETT STATION - I1 <=
+								Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2 <=
 								Stops.ALL_STOPS.get("1465"), // MUKILTEO FERRY TERMINAL
 						})) //
 				.compileBothTripSort());
@@ -314,22 +407,32 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("6395"), // MALL STATION - BAY 1
-								Stops.ALL_STOPS.get("4231"), // !=
-								Stops.ALL_STOPS.get("4159"), // <>
+								Stops.ALL_STOPS.get("6335"), // == 112TH ST SE & SILVER LAKE RD - EB
+								Stops.ALL_STOPS.get("6337"), // !== 112TH ST SE & 16TH AVE SE - EB
+								Stops.ALL_STOPS.get("6340"), // != SILVER LAKE RD & SILVER LAKE BEACH - SB
+								Stops.ALL_STOPS.get("6405"), // != 19TH AVE SE & 113TH ST SE - WB
+								Stops.ALL_STOPS.get("6365"), // == 19TH AVE SE & 110TH ST SE - NB
+								Stops.ALL_STOPS.get("4231"), // != BROADWAY & 79TH ST SE - NB
+								Stops.ALL_STOPS.get("4159"), // <> 75TH ST SE & MCDOUGALL AVE - EB
 								Stops.ALL_STOPS.get("4151"), Stops.ALL_STOPS.get("4157"), Stops.ALL_STOPS.get("4154"), Stops.ALL_STOPS.get("4156"), // <>
-								Stops.ALL_STOPS.get("4158"), // <>
-								Stops.ALL_STOPS.get("4162"), // !=
+								Stops.ALL_STOPS.get("4158"), // <> 75TH ST SE & MCDOUGALL AVE - WB
+								Stops.ALL_STOPS.get("4162"), // != BROADWAY & 75TH ST SE - NB
 								Stops.ALL_STOPS.get("1054"), // COLLEGE STATION - BAY D - NB
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("1054"), // COLLEGE STATION - BAY D - NB
 								Stops.ALL_STOPS.get("2340"), // == EVERETT STATION - F1 - SB
-								Stops.ALL_STOPS.get("4161"), // == !=
-								Stops.ALL_STOPS.get("4159"), // != <>
+								Stops.ALL_STOPS.get("4161"), // == != BROADWAY & 74TH ST SE - SB
+								Stops.ALL_STOPS.get("4159"), // != <> 75TH ST SE & MCDOUGALL AVE - EB
 								Stops.ALL_STOPS.get("4151"), Stops.ALL_STOPS.get("4157"), Stops.ALL_STOPS.get("4154"), Stops.ALL_STOPS.get("4156"), // <>
-								Stops.ALL_STOPS.get("4158"), // != <>
-								Stops.ALL_STOPS.get("4232"), // == !=
+								Stops.ALL_STOPS.get("4158"), // != <> 75TH ST SE & MCDOUGALL AVE - WB
+								Stops.ALL_STOPS.get("4232"), // == != BROADWAY & 79TH ST SE - SB
+								Stops.ALL_STOPS.get("6150"), // == 19TH AVE SE & 110TH ST SE - SB
+								Stops.ALL_STOPS.get("6155"), // !== 112TH ST SE & 19TH AVE SE - WB
+								Stops.ALL_STOPS.get("6402"), // != 19TH AVE SE & 113TH ST SE - EB
+								Stops.ALL_STOPS.get("6343"), // != SILVER LAKE RD & SILVER LAKE BEACH - NB
+								Stops.ALL_STOPS.get("6160"), // == 112TH ST SE & SILVER LAKE RD - WB
 								Stops.ALL_STOPS.get("6395"), // MALL STATION - BAY 1
 						})) //
 				.compileBothTripSort());
@@ -339,21 +442,21 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.EAST.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("1465"), // MUKILTEO FERRY TERMINAL
-								Stops.ALL_STOPS.get("7380"), // !=
-								Stops.ALL_STOPS.get("2327"), // <>
+								Stops.ALL_STOPS.get("7380"), // != 84TH ST SW & 44TH AVE W - EB
+								Stops.ALL_STOPS.get("2327"), // <> BOEING GATE E-72
 								Stops.ALL_STOPS.get("2905"), // <> PERIMETER RD & SEAWAY BLVD - EB
 								Stops.ALL_STOPS.get("2484"), // <> AIRPORT RD & W CASINO RD - SB
-								Stops.ALL_STOPS.get("1741"), // <>
+								Stops.ALL_STOPS.get("1741"), // <> 94TH ST SW & AIRPORT RD - WB
 								Stops.ALL_STOPS.get("2977"), // <> BOEING GATE E-68
 						})) //
 				.addTripSort(MDirectionType.WEST.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("2484"), // <> AIRPORT RD & W CASINO RD - SB
-								Stops.ALL_STOPS.get("1741"), // <>
+								Stops.ALL_STOPS.get("1741"), // <> 94TH ST SW & AIRPORT RD - WB
 								Stops.ALL_STOPS.get("2977"), // <> BOEING GATE E-68
-								Stops.ALL_STOPS.get("2327"), // <>
+								Stops.ALL_STOPS.get("2327"), // <> BOEING GATE E-72
 								Stops.ALL_STOPS.get("2905"), // <> PERIMETER RD & SEAWAY BLVD - EB
-								Stops.ALL_STOPS.get("7375"), // !=
+								Stops.ALL_STOPS.get("7375"), // != 84TH ST SW & 44TH AVE W - WB
 								Stops.ALL_STOPS.get("1465"), // MUKILTEO FERRY TERMINAL
 						})) //
 				.compileBothTripSort());
