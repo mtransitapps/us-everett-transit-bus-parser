@@ -161,13 +161,11 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("2106"), // MARINER PARK AND RIDE - Bay 4
-								Stops.ALL_STOPS.get("6279"), // 3RD AVE SE & 112TH ST SW - NB
 								Stops.ALL_STOPS.get("6394"), // MALL STATION - BAY 2
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("6394"), // MALL STATION - BAY 2
-								Stops.ALL_STOPS.get("5281"), // 112TH ST SE & 4TH AVE W - WB
 								Stops.ALL_STOPS.get("2106"), // MARINER PARK AND RIDE - Bay 4
 						})) //
 				.compileBothTripSort());
@@ -238,12 +236,8 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("5288"), // AIRPORT RD & EVERGREEN WAY - NB
 								Stops.ALL_STOPS.get("3484"), // ==
-								Stops.ALL_STOPS.get("3673"), // xx
-								Stops.ALL_STOPS.get("3663"), // xx
 								Stops.ALL_STOPS.get("3442"), // !=
 								Stops.ALL_STOPS.get("3677"), // !=
-								Stops.ALL_STOPS.get("3673"), // xx
-								Stops.ALL_STOPS.get("3663"), // xx
 								Stops.ALL_STOPS.get("3430"), // ==
 								Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
 						})) //
@@ -251,12 +245,8 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
 								Stops.ALL_STOPS.get("3425"), // ==
-								Stops.ALL_STOPS.get("3440"), // xx
-								Stops.ALL_STOPS.get("3675"), // xx
 								Stops.ALL_STOPS.get("3676"), // !=
 								Stops.ALL_STOPS.get("3445"), // !=
-								Stops.ALL_STOPS.get("3440"), // xx
-								Stops.ALL_STOPS.get("3675"), // xx
 								Stops.ALL_STOPS.get("3710"), // ==
 								Stops.ALL_STOPS.get("5288"), // AIRPORT RD & EVERGREEN WAY - NB
 						})) //
@@ -322,9 +312,6 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 								Stops.ALL_STOPS.get("6405"), // != 19TH AVE SE & 113TH ST SE - WB
 								Stops.ALL_STOPS.get("6365"), // == 19TH AVE SE & 110TH ST SE - NB
 								Stops.ALL_STOPS.get("4231"), // != BROADWAY & 79TH ST SE - NB
-								Stops.ALL_STOPS.get("4159"), // <> 75TH ST SE & MCDOUGALL AVE - EB
-								Stops.ALL_STOPS.get("4151"), Stops.ALL_STOPS.get("4157"), Stops.ALL_STOPS.get("4154"), Stops.ALL_STOPS.get("4156"), // <>
-								Stops.ALL_STOPS.get("4158"), // <> 75TH ST SE & MCDOUGALL AVE - WB
 								Stops.ALL_STOPS.get("4162"), // != BROADWAY & 75TH ST SE - NB
 								Stops.ALL_STOPS.get("1054"), // COLLEGE STATION - BAY D - NB
 						})) //
@@ -333,9 +320,6 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 						Stops.ALL_STOPS.get("1054"), // COLLEGE STATION - BAY D - NB
 								Stops.ALL_STOPS.get("2340"), // == EVERETT STATION - F1 - SB
 								Stops.ALL_STOPS.get("4161"), // == != BROADWAY & 74TH ST SE - SB
-								Stops.ALL_STOPS.get("4159"), // != <> 75TH ST SE & MCDOUGALL AVE - EB
-								Stops.ALL_STOPS.get("4151"), Stops.ALL_STOPS.get("4157"), Stops.ALL_STOPS.get("4154"), Stops.ALL_STOPS.get("4156"), // <>
-								Stops.ALL_STOPS.get("4158"), // != <> 75TH ST SE & MCDOUGALL AVE - WB
 								Stops.ALL_STOPS.get("4232"), // == != BROADWAY & 79TH ST SE - SB
 								Stops.ALL_STOPS.get("6150"), // == 19TH AVE SE & 110TH ST SE - SB
 								Stops.ALL_STOPS.get("6155"), // !== 112TH ST SE & 19TH AVE SE - WB
