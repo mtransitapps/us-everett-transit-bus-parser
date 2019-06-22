@@ -235,19 +235,14 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("5288"), // AIRPORT RD & EVERGREEN WAY - NB
-								Stops.ALL_STOPS.get("3484"), // ==
-								Stops.ALL_STOPS.get("3442"), // !=
-								Stops.ALL_STOPS.get("3677"), // !=
-								Stops.ALL_STOPS.get("3430"), // ==
+								Stops.ALL_STOPS.get("3677"), // == 75TH ST SW & 16TH AVE W - EB
+								Stops.ALL_STOPS.get("7125"), // != HARDESON ROAD & 75TH ST SW - SB
+								Stops.ALL_STOPS.get("3710"), // == HARDESON RD & 77TH - SB
 								Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
-								Stops.ALL_STOPS.get("3425"), // ==
-								Stops.ALL_STOPS.get("3676"), // !=
-								Stops.ALL_STOPS.get("3445"), // !=
-								Stops.ALL_STOPS.get("3710"), // ==
 								Stops.ALL_STOPS.get("5288"), // AIRPORT RD & EVERGREEN WAY - NB
 						})) //
 				.compileBothTripSort());
