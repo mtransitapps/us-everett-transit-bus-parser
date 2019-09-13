@@ -175,11 +175,11 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("3182"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
-								Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+								Stops.ALL_STOPS.get("2430"), Stops.ALL_STOPS.get("2441"), // EVERETT STATION
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.ALL_STOPS.get("2430"), // EVERETT STATION - D2
+						Stops.ALL_STOPS.get("2430"), Stops.ALL_STOPS.get("2441"), // EVERETT STATION
 								Stops.ALL_STOPS.get("3182"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
 						})) //
 				.compileBothTripSort());
@@ -202,13 +202,13 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, EVERETT_STATION) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
+						Stops.ALL_STOPS.get("2430"), Stops.ALL_STOPS.get("2441"), // EVERETT STATION
 								Stops.ALL_STOPS.get("1052"), // COLLEGE STATION - BAY B - SB
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.ALL_STOPS.get("1052"), // COLLEGE STATION - BAY B - SB
-								Stops.ALL_STOPS.get("2441"), // EVERETT STATION - D4
+								Stops.ALL_STOPS.get("2430"), Stops.ALL_STOPS.get("2441"), // EVERETT STATION
 						})) //
 				.compileBothTripSort());
 		map2.put(7L, new RouteTripSpec(7L, //
