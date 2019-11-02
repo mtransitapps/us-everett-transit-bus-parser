@@ -25,32 +25,5 @@ echo "	}" >> $JAVA_STOPS_FILE;
 echo "}" >> $JAVA_STOPS_FILE;
 echo "" >> $JAVA_STOPS_FILE;
 echo ">> Pre Parsing > Set Java stops file... DONE";
-echo ">> Pre Parsing > Build Java stops file...";
-PARSER_DIRECTORY="../parser";
-echo "PARSER_DIRECTORY: $PARSER_DIRECTORY"; # DEBUG
-PARSER_BIN="$PARSER_DIRECTORY/bin";
-echo "PARSER_BIN: $PARSER_BIN"; # DEBUG
-if [[ -d "bin" ]]; then
-	echo "Creating 'bin' directory..."; # DEBUG
-	mkdir "bin";
-	RESULT=$?;
-	checkResult $RESULT false;
-else
-	echo "'bin' directory already exist"; # DEBUG
-fi
-if [[ -d $PARSER_BIN ]]; then
-	echo "Creating '$PARSER_BIN' directory..."; # DEBUG
-	mkdir $PARSER_BIN;
-	RESULT=$?;
-	checkResult $RESULT false;
-else
-	echo "'$PARSER_BIN' directory already exist"; # DEBUG
-fi
-PARSER_CLASSPATH=$(cat "$PARSER_DIRECTORY/classpath");
-echo "PARSER_CLASSPATH: $PARSER_CLASSPATH"; # DEBUG
-javac -cp "bin:$PARSER_BIN" -classpath $PARSER_CLASSPATH -d bin $JAVA_FILES_DIR/*.java;
-RESULT=$?;
-checkResult $RESULT false;
-echo ">> Pre Parsing > Build Java stops file... DONE";
 echo ">> Pre Parsing... DONE";
 exit $RESULT;
