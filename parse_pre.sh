@@ -28,8 +28,8 @@ echo ">> Pre Parsing > Set Java stops file... DONE";
 echo ">> Pre Parsing > Build Java stops file...";
 PARSER_DIRECTORY="../parser";
 PARSER_BIN="$PARSER_DIRECTORY/bin";
-if [[ -d "$PARSER_DIRECTORY/bin" ]]; then
-	mkdir "$PARSER_DIRECTORY/bin";
+if [[ -d "bin" ]]; then
+	mkdir "bin";
 	RESULT=$?;
 	checkResult $RESULT false;
 fi
