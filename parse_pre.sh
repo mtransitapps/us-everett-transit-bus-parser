@@ -28,6 +28,11 @@ echo ">> Pre Parsing > Set Java stops file... DONE";
 echo ">> Pre Parsing > Build Java stops file...";
 PARSER_DIRECTORY="../parser";
 PARSER_BIN="$PARSER_DIRECTORY/bin";
+if [[ -d "$PARSER_DIRECTORY/bin" ]]; then
+	mkdir "$PARSER_DIRECTORY/bin";
+	RESULT=$?;
+	checkResult $RESULT false;
+fi
 PARSER_CLASSPATH=$(cat "$PARSER_DIRECTORY/classpath");
 javac -cp "bin:$PARSER_BIN" -classpath $PARSER_CLASSPATH -d bin $JAVA_FILES_DIR/*.java;
 RESULT=$?;
