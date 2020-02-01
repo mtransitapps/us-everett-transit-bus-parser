@@ -217,11 +217,11 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.getALL_STOPS().get("6395"), // MALL STATION - BAY 1
-								Stops.getALL_STOPS().get("1056"), // COLLEGE STATION - BAY F - NB
+								Stops.getALL_STOPS().get("1056"), "165", // COLLEGE STATION - BAY F - NB
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.getALL_STOPS().get("1056"), // COLLEGE STATION - BAY F - NB
+						Stops.getALL_STOPS().get("1056"), "165", // COLLEGE STATION - BAY F - NB
 								Stops.getALL_STOPS().get("1367"), // ==
 								Stops.getALL_STOPS().get("5120"), // !=
 								Stops.getALL_STOPS().get("5000"), // !=
