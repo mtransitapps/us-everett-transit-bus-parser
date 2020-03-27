@@ -174,13 +174,13 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				MDirectionType.SOUTH.intValue(), MTrip.HEADSIGN_TYPE_STRING, SEAWAY_TC) //
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.getALL_STOPS().get("3182"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
-								Stops.getALL_STOPS().get("2430"), Stops.getALL_STOPS().get("2441"), // EVERETT STATION
+						Stops.getALL_STOPS().get("3189"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
+								Stops.getALL_STOPS().get("2441"), // EVERETT STATION
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.getALL_STOPS().get("2430"), Stops.getALL_STOPS().get("2441"), // EVERETT STATION
-								Stops.getALL_STOPS().get("3182"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
+						Stops.getALL_STOPS().get("2441"), // EVERETT STATION
+								Stops.getALL_STOPS().get("3189"), // SEAWAY TRANSIT CENTER - BAY 4 - EB
 						})) //
 				.compileBothTripSort());
 		map2.put(4L, new RouteTripSpec(4L, //
@@ -217,11 +217,11 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.NORTH.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.getALL_STOPS().get("6395"), // MALL STATION - BAY 1
-								Stops.getALL_STOPS().get("1056"), "165", // COLLEGE STATION - BAY F - NB
+								Stops.getALL_STOPS().get("1056"), "172", // COLLEGE STATION - BAY F - NB
 						})) //
 				.addTripSort(MDirectionType.SOUTH.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.getALL_STOPS().get("1056"), "165", // COLLEGE STATION - BAY F - NB
+						Stops.getALL_STOPS().get("1056"), "172", // COLLEGE STATION - BAY F - NB
 								Stops.getALL_STOPS().get("1367"), // ==
 								Stops.getALL_STOPS().get("5120"), // !=
 								Stops.getALL_STOPS().get("5000"), // !=
@@ -251,13 +251,13 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				MDirectionType.WEST.intValue(), MTrip.HEADSIGN_TYPE_STRING, SEAWAY_TC) //
 				.addTripSort(MDirectionType.EAST.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.getALL_STOPS().get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+						Stops.getALL_STOPS().get("3188"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
 								Stops.getALL_STOPS().get("6394"), // MALL STATION - BAY 2
 						})) //
 				.addTripSort(MDirectionType.WEST.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.getALL_STOPS().get("6394"), // MALL STATION - BAY 2
-								Stops.getALL_STOPS().get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+								Stops.getALL_STOPS().get("3188"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
 						})) //
 				.compileBothTripSort());
 		map2.put(17L, new RouteTripSpec(17L, //
@@ -330,11 +330,11 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 				.addTripSort(MDirectionType.EAST.intValue(), //
 						Arrays.asList(new String[] { //
 						Stops.getALL_STOPS().get("1465"), // MUKILTEO FERRY TERMINAL
-								Stops.getALL_STOPS().get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+								Stops.getALL_STOPS().get("3188"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
 						})) //
 				.addTripSort(MDirectionType.WEST.intValue(), //
 						Arrays.asList(new String[] { //
-						Stops.getALL_STOPS().get("3181"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
+						Stops.getALL_STOPS().get("3188"), // SEAWAY TRANSIT CENTER - BAY 5 - EB
 								Stops.getALL_STOPS().get("1465"), // MUKILTEO FERRY TERMINAL
 						})) //
 				.compileBothTripSort());
