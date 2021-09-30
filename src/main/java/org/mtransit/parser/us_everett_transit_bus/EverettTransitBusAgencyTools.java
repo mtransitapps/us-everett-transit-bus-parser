@@ -6,11 +6,12 @@ import static org.mtransit.commons.StringUtils.EMPTY;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.mtransit.commons.CleanUtils;
+import org.mtransit.parser.ColorUtils;
 import org.mtransit.parser.DefaultAgencyTools;
-import org.mtransit.parser.gtfs.data.GRoute;
 import org.mtransit.parser.gtfs.data.GStop;
 import org.mtransit.parser.mt.data.MAgency;
 
+import java.util.List;
 import java.util.Locale;
 import java.util.regex.Pattern;
 
@@ -22,6 +23,12 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 
 	public static void main(@NotNull String[] args) {
 		new EverettTransitBusAgencyTools().start(args);
+	}
+
+	@Nullable
+	@Override
+	public List<Locale> getSupportedLanguages() {
+		return LANG_EN;
 	}
 
 	@Override
@@ -41,8 +48,18 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 	}
 
 	@Override
-	public long getRouteId(@NotNull GRoute gRoute) {
-		return Long.parseLong(gRoute.getRouteShortName()); // using route short name as route ID
+	public boolean defaultRouteIdEnabled() {
+		return true;
+	}
+
+	@Override
+	public boolean useRouteShortNameForRouteId() {
+		return true;
+	}
+
+	@Override
+	public boolean defaultRouteLongNameEnabled() {
+		return true;
 	}
 
 	@Override
@@ -63,7 +80,7 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 	@Nullable
 	@Override
 	public String fixColor(@Nullable String color) {
-		if ("000000".equalsIgnoreCase(color)) {
+		if (ColorUtils.BLACK.equalsIgnoreCase(color)) {
 			return null;
 		}
 		return super.fixColor(color);
@@ -120,7 +137,7 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 	@Override
 	public String cleanStopName(@NotNull String gStopName) {
 		gStopName = _DASH_.matcher(gStopName).replaceAll(SPACE);
-		gStopName = CleanUtils.toLowerCaseUpperCaseWords(Locale.ENGLISH, gStopName, getIgnoredWords());
+		gStopName = CleanUtils.toLowerCaseUpperCaseWords(getFirstLanguageNN(), gStopName, getIgnoredWords());
 		gStopName = CleanUtils.SAINT.matcher(gStopName).replaceAll(CleanUtils.SAINT_REPLACEMENT);
 		gStopName = CleanUtils.CLEAN_AND.matcher(gStopName).replaceAll(CleanUtils.CLEAN_AND_REPLACEMENT);
 		gStopName = CleanUtils.CLEAN_AT.matcher(gStopName).replaceAll(CleanUtils.CLEAN_AT_REPLACEMENT);
