@@ -17,8 +17,7 @@ import java.util.regex.Pattern;
 
 // https://www.soundtransit.org/Developer-resources/Data-downloads
 // https://www.soundtransit.org/help-contacts/business-information/open-transit-data-otd/otd-downloads
-// http://developer.onebusaway.org/tmp/sound/gtfs/modified/97_gtfs.zip
-// http://developer.onebusaway.org/tmp/sound/gtfs/modified_staged/97_gtfs.zip
+// https://gtfs.sound.obaweb.org/prod/97_gtfs.zip
 public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 
 	public static void main(@NotNull String[] args) {
