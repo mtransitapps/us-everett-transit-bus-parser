@@ -147,6 +147,10 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 
 	@Override
 	public int getStopId(@NotNull GStop gStop) {
+		final String stopCode = gStop.getStopCode();
+		if (stopCode.equalsIgnoreCase("-1")) {
+			return super.getStopId(gStop);
+		}
 		return Integer.parseInt(gStop.getStopCode()); // using stop code as stop ID
 	}
 }
