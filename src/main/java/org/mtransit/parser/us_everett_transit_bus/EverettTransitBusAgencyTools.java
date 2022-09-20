@@ -145,11 +145,21 @@ public class EverettTransitBusAgencyTools extends DefaultAgencyTools {
 		return CleanUtils.cleanLabel(gStopName);
 	}
 
+	@NotNull
+	@Override
+	public String getStopCode(@NotNull GStop gStop) {
+		String stopCode = gStop.getStopCode();
+		if (stopCode.equalsIgnoreCase("-1")) {
+			stopCode = EMPTY;
+		}
+		return stopCode;
+	}
+
 	@Override
 	public int getStopId(@NotNull GStop gStop) {
-		final String stopCode = gStop.getStopCode();
-		if (stopCode.equalsIgnoreCase("-1")) {
-			return super.getStopId(gStop);
+		final String stopCode = getStopCode(gStop);
+		if (stopCode.isBlank()) {
+			return super.getStopId(gStop); // fall back on stop ID
 		}
 		return Integer.parseInt(gStop.getStopCode()); // using stop code as stop ID
 	}
